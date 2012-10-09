@@ -1,0 +1,45 @@
+/* @override 
+	http://gcs.loc/sites/all/themes/prolifik/css/prolifik-header.css?mbfgwv
+*/
+
+#section-header {
+  overflow: hidden;
+  position: relative;
+
+}
+
+#zone-header {
+
+
+}
+
+#zone-header-wrapper {
+  overflow: hidden;
+  position: relative;
+  background-color: #004787;
+}
+
+/* @group Slideshow */
+div.fpss-left {
+	float: none;
+}
+
+div.fpss-left div.fpss-body p {
+	font-size: medium;
+	line-height: 1.5em;
+	color: white;
+	font-weight: lighter;
+}
+#block-views-fpss-block div.view-footer  {display: none;}
+
+#block-views-fpss-block div.view-footer p a img { margin-left: 25px;}
+
+#views_slideshow_cycle_div_fpss-block_0 
+h2.fpss {color: white;
+	font-size: 4em;
+	font-weight: lighter;
+}
+div.fpss-slide img {border: thick solid white; float: left; margin-bottom: 20px;}
+
+
+/* @end */

@@ -1,0 +1,37 @@
+/* @override 
+	http://shs.loc/sites/all/themes/prolifik/css/prolifik-alpha-default-normal.css?m67bl9
+	http://gcs.loc/sites/all/themes/prolifik/css/prolifik-alpha-default-normal.css?mbfgwv
+*/
+
+/* This file will hold styles that are loaded using the same media query as the normal grid. */
+
+#logo {
+  width: 250px;
+}
+
+/* Search Form */
+#block-search-form {
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 35px;
+  width: 300px;
+  z-index: 1;
+}
+
+
+
+#block-views-fpss-block div.view-footer p a img { margin-left: 25px; max-width: 300px;	height: auto;
+}
+
+div.fpss-left {
+width: 50%; float: left;
+}
+div.fpss-slide img {
+	float: right;
+	border: thick solid white;
+	position: relative;
+	top: 65px;
+	max-width: 600px;
+	height: auto;
+}
