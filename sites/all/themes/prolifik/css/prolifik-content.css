@@ -1,4 +1,7 @@
-/* @override http://gcs.loc/sites/all/themes/prolifik/css/prolifik-content.css?mbfgwv */
+/* @override 
+	http://gcs.loc/sites/all/themes/prolifik/css/prolifik-content.css?mbfgwv
+	http://gcs.lightyourmusic.com/sites/all/themes/prolifik/css/prolifik-content.css?mbn3h8
+*/
 
 /* Content */
 #section-content {background-color: white;
@@ -13,7 +16,8 @@ box-shadow: #666 0px 0px 10px;
 #section-content .zone-wrapper {
   }
 #section-content .zone-wrapper .zone {
-  }
+	padding-bottom: 25px;
+}
 #section-content .zone-wrapper > .separator {
   background: rgb(255,255,255); /* Old browsers */
   background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(212,212,212,1) 49%, rgba(255,255,255,1) 100%); /* FF3.6+ */
@@ -27,7 +31,7 @@ box-shadow: #666 0px 0px 10px;
 }
 #section-content .zone-wrapper .zone .region-inner {
   margin: 0;
-  padding: 5px;
+  padding: 10px;
 }
 
 /* Sidebars */

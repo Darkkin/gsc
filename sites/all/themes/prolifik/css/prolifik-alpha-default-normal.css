@@ -1,6 +1,8 @@
 /* @override 
 	http://shs.loc/sites/all/themes/prolifik/css/prolifik-alpha-default-normal.css?m67bl9
 	http://gcs.loc/sites/all/themes/prolifik/css/prolifik-alpha-default-normal.css?mbfgwv
+	http://gcs.lightyourmusic.com/sites/all/themes/prolifik/css/prolifik-alpha-default-normal.css?mbn3h8
+	http://gcs.lightyourmusic.com/sites/all/themes/prolifik/css/prolifik-alpha-default-normal.css?mexge2
 */
 
 /* This file will hold styles that are loaded using the same media query as the normal grid. */
@@ -20,18 +22,24 @@
 }
 
 
-
 #block-views-fpss-block div.view-footer p a img { margin-left: 25px; max-width: 300px;	height: auto;
 }
 
 div.fpss-left {
-width: 50%; float: left;
+width: 32%; float: left; overflow: hidden;
 }
 div.fpss-slide img {
-	float: right;
 	border: thick solid white;
 	position: relative;
 	top: 65px;
-	max-width: 600px;
+	max-width: 450px;
 	height: auto;
+}
+
+
+div.fpss-left div.fpss-body {
+
+}
+h2.fpss {
+	text-align: left;
 }

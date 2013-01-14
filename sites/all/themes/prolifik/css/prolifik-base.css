@@ -1,30 +1,67 @@
-/* @override
+/* @override 
 	http://gcs.loc/sites/all/themes/prolifik/css/prolifik-base.css?mbfgwv
+	http://gcs.lightyourmusic.com/sites/all/themes/prolifik/css/prolifik-base.css?mbn3h8
+	http://gcs.lightyourmusic.com/sites/all/themes/prolifik/css/prolifik-base.css?mbp0oy
+	http://gcs.lightyourmusic.com/sites/all/themes/prolifik/css/prolifik-base.css?mbxzhn
+	http://gcs.lightyourmusic.com/sites/all/themes/prolifik/css/prolifik-base.css?mexge2
 */
 
 /* This file will hold the main styles for your website. */
 body {
 }
 
-span.quote {
-	font-weight: bold;
-	font-size: 1.5em;
-	line-height: 1.5em;
-}
+/* @group Testimonials */
 
-div.testimonial-body p, div.testimonial-author p {
-display: inline;	
-}
+#views_slideshow_cycle_div_testimonials-block_0 div div.testimonial-author p {float: right;}
+/* @group Page */
 
-div.testimonial-author {
-	float: right;
-	margin-bottom: 10px;
-}
-
-div.front-readmore {
+#block-system-main div.view-id-testimonials.view-display-id-page div.views-row {
 	clear: both;
+}
+
+
+
+/* @end */
+
+
+
+/* @end */
+
+/* @group Front Block */
+
+#views_slideshow_cycle_div_testimonials-block_0 div.testimonial-body p, #block-block-2 div.content p {font-size: 1.2em;}
+
+
+/* @end */
+
+ul.towns {
+	color: #ffffff;
+	font-size: 24px;
+	float: left;
+}
+
+div.front-readmore, div.readmore {
+	padding: 10px;
+	border-radius: 10px;
+	background-color: #004685;
 	float: right;
 }
+div.readmore a,div.front-readmore a {
+	color: white;
+}
+
+#block-system-main .view-id-services div.views-row {clear: both;
+	border-bottom: thin solid #0d4082;
+	padding-bottom: 60px;
+	margin-top: 30px;
+}
+
+#block-views-services-block-1 div.block-title h2.block-title div.text {
+	margin-bottom: 20px;
+	border-bottom: thin solid #0d4082;
+	color: #0d4082;
+}
+
 
 #block-views-testimonials-block div.block-title h2.block-title div.text {font: 24px Sans; text-align: left;
 	background: url(../images/opthamology_review.png) no-repeat;
@@ -43,12 +80,60 @@ div.front-readmore {
 	
 }
 
+#block-views-latest-articles-block div.block-title h2.block-title div.text {
+	font: 24px Sans; text-align: left;
+	background: url(../images/news.png) no-repeat;
+	padding-left: 60px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	color: #004685;
+}
+
 /* Links */
 a, a:link {
   text-decoration: none;
 }
 a, a:link, a:visited, a:active {
   color: #004685;}
+
+/* @group Staff Page */
+
+.node-staff figure.field.field-name-field-image img {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.node-staff h2.node-title {
+	border-top: thin solid silver;
+	padding-top: 20px;
+}
+
+
+
+/* @end */
+
+#block-views-latest-articles-block {
+	background: #96dbf7;
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzk2ZGJmNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  #96dbf7 0%, #ffffff 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#96dbf7), color-stop(100%,#ffffff));
+background: -webkit-linear-gradient(top,  #96dbf7 0%,#ffffff 100%);
+background: -o-linear-gradient(top,  #96dbf7 0%,#ffffff 100%);
+background: -ms-linear-gradient(top,  #96dbf7 0%,#ffffff 100%);
+background: linear-gradient(to bottom,  #96dbf7 0%,#ffffff 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#96dbf7', endColorstr='#ffffff',GradientType=0 );
+	padding: 10px;
+	border-radius: 10px;
+	min-height: 250px;
+}
+
+#block-block-2, #block-views-testimonials-block {
+	padding: 10px;
+	min-height: 250px;
+}
+
+
 a:hover {
   text-decoration: underline;
 }
@@ -177,9 +262,3 @@ ul.quicktabs-tabs li a {
 
 
 /* @end */
-
-#region-menu nav.navigation ul.menu li.leaf {
-  float: left;
-  display: block;
-}
-

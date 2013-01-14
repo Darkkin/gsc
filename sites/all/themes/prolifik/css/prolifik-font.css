@@ -1,88 +1,98 @@
-/* @override 
-	http://hilton.loc/sites/all/themes/navin/css/prolifik-font.css?m5bgn5
-	http://hilton.loc/sites/all/themes/navin/css/prolifik-font.css?m5cq9x
-	http://btcv.biz/sites/all/themes/prolifik/css/prolifik-font.css?m5f2cd
-	http://gcs.loc/sites/all/themes/prolifik/css/prolifik-font.css?mbfgwv
-*/
-
-/* Body */
-body { font-size: 62.5%;
+/*Body*/
+BODY
+{
+	font-size: 62.5%;
 	text-align: justify;
 }
-#admin-menu { font-size: 1.2em; }
-
-body, h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica Neue", "Helvetica", "Arial";
+#admin-menu
+{
+	font-size: 1.2em;
 }
-
-/* Menu */
-#region-menu nav.navigation > ul.menu > li > a {
-  font-size: 1.5em;
-  line-height: 1em;
+BODY, H1, H2, H3, H4, H5, H6
+{
+	font-family: "Helvetica Neue", Helvetica, Arial;
 }
-#region-menu nav.navigation > ul.menu > li > ul,
-#region-menu nav.navigation > ul.menu > li > div,
-#region-menu nav.navigation-secondary > ul.menu > li > a {
-  font-size: 1.2em;
+/*Menu*/
+#region-menu NAV.navigation > UL.menu > LI > A
+{
+	font-size: 1.5em;
+	line-height: 1em;
 }
-
-/* Blocks */
-div.block-title h2.block-title {
-  font-size: 2.4em;
+#region-menu NAV.navigation > UL.menu > LI > UL, #region-menu NAV.navigation > UL.menu > LI > DIV, #region-menu NAV.navigation-secondary > UL.menu > LI > A
+{
+	font-size: 1.2em;
+}
+/*Blocks*/
+DIV.block-title H2.block-title
+{
+	font-size: 2.4em;
 	margin-top: 10px;
 	margin-bottom: 5px;
 	text-align: center;
 }
-
-/* Content */
-#messages,
-ul.action-links,
-ul.tabs,
-#zone-preface .region-inner > .block > .content,
-#zone-content .region-inner > .block > .content,
-#zone-postfix .region-inner > .block > .content {
-  font-size: 1.4em;
+/*Content*/
+#messages, UL.action-links, UL.tabs, #zone-preface .region-inner > .block > .content, #zone-content .region-inner > .block > .content, #zone-postfix .region-inner > .block > .content
+{
+	font-size: 1.4em;
 }
-#zone-footer .region-inner > .block > .content {
-  font-size: 1.2em;
+#zone-footer .region-inner > .block > .content
+{
+	font-size: 1.2em;
 }
-/* Headers */
-h1 {
-  font-size: 2.8em;
+/*Headers*/
+H1
+{
+	font-size: 2.8em;
 }
-h2 {
-  font-size: 2.4em;
+H2
+{
+	font-size: 2.4em;
 }
-h3 {
-  font-size: 2em;
+H3
+{
+	font-size: 2em;
 }
-h4 {
-  font-size: 1.6em;
+H4
+{
+	font-size: 1.6em;
 }
-h5 {
-  font-size: 1.4em;
+H5
+{
+	font-size: 1.4em;
 }
-.block > .content h1 {
-  font-size: 2em;
+.block > .content H1
+{
+	font-size: 2em;
 }
-.block > .content h2 {
-  font-size: 1.714em;
+.block > .content H2
+{
+	font-size: 1.714em;
 }
-
-.block > .content h3 {
-  font-size: 1.429em;
+#block-system-main .view-id-services .node-title
+{
 }
-.block > .content h4 {
-  font-size: 1.143em;
+.block > .content H3
+{
+	font-size: 1.429em;
 }
-.block > .content h5 {
-  font-size: 1em;
+.block > .content H4
+{
+	font-size: 1.143em;
 }
-
-div.caption {
-	font-size: .9em;
+.block > .content H5
+{
+	font-size: 1em;
+}
+DIV.caption
+{
+	font-size: 0.9em;
 	text-align: justify;
 	margin-right: 5%;
 	margin-left: 5%;
 }
-
+#block-system-main .view-id-services .node-title
+{
+	/*[disabled]border-top:1px solid #000000;*/
+	border-bottom: 1px solid #AAA7A7;
+	margin-top: 30px;
+}

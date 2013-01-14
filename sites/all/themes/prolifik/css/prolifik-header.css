@@ -1,5 +1,7 @@
 /* @override 
 	http://gcs.loc/sites/all/themes/prolifik/css/prolifik-header.css?mbfgwv
+	http://gcs.lightyourmusic.com/sites/all/themes/prolifik/css/prolifik-header.css?mbn3h8
+	http://gcs.lightyourmusic.com/sites/all/themes/prolifik/css/prolifik-header.css?mexge2
 */
 
 #section-header {
@@ -16,12 +18,23 @@
 #zone-header-wrapper {
   overflow: hidden;
   position: relative;
-  background-color: #004787;
+  background: #004787;
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNDc4NyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzFmODRjMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijc1JSIgc3RvcC1jb2xvcj0iI2E4ZGZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  #004787 0%, #1f84c3 50%, #a8dff6 75%, #ffffff 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#004787), color-stop(50%,#1f84c3), color-stop(75%,#a8dff6), color-stop(100%,#ffffff));
+background: -webkit-linear-gradient(top,  #004787 0%,#1f84c3 50%,#a8dff6 75%,#ffffff 100%);
+background: -o-linear-gradient(top,  #004787 0%,#1f84c3 50%,#a8dff6 75%,#ffffff 100%);
+background: -ms-linear-gradient(top,  #004787 0%,#1f84c3 50%,#a8dff6 75%,#ffffff 100%);
+background: linear-gradient(to bottom,  #004787 0%,#1f84c3 50%,#a8dff6 75%,#ffffff 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#004787', endColorstr='#ffffff',GradientType=0 );
+
 }
 
 /* @group Slideshow */
 div.fpss-left {
 	float: none;
+}
+div.fpss-left div.fpss-body {
 }
 
 div.fpss-left div.fpss-body p {
@@ -34,12 +47,17 @@ div.fpss-left div.fpss-body p {
 
 #block-views-fpss-block div.view-footer p a img { margin-left: 25px;}
 
-#views_slideshow_cycle_div_fpss-block_0 
-h2.fpss {color: white;
+#block-views-fpss-block h2.fpss {color: white;
 	font-size: 4em;
 	font-weight: lighter;
 }
-div.fpss-slide img {border: thick solid white; float: left; margin-bottom: 20px;}
+
+div.fpss-slide img {width: 90%; height: auto;border: thick solid white;
+	margin-bottom: 20px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
 
 
 /* @end */

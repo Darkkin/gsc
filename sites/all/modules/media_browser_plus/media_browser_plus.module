@@ -112,6 +112,7 @@ function media_browser_plus_thumbnailsJSON() {
         foreach ($value as $type => $params) {
           foreach ($params as $param) {
             if (is_array($param)) {
+              $valid = !empty($param);
               foreach ($param as $media_type) {
                 if (strlen(trim($media_type)) == 0) {
                   $valid = FALSE;
@@ -133,9 +134,25 @@ function media_browser_plus_thumbnailsJSON() {
       }
     }
     // More conditions.
-    $conditions[] = array(
-      'field' => array('field_folder', 'tid', array($folder), 'IN'),
-    );
+    if ($folder) {
+      $conditions[] = array(
+        'field' => array('field_folder', 'tid', array($folder), 'IN'),
+      );
+    }
+    elseif ($folder === 0) {
+      // Get unsorted files. We can't use EFQ conditions because the field
+      // tables are joined using inner join, what excludes unsorted files from
+      // the whole query at all. Thus fetch the fids of the unsorted fields and
+      // use this as condition.
+      $query = db_select('file_managed')
+        ->fields('file_managed', array('fid', 'fid'))
+        ->condition('uri', db_like('temporary://') . '%', 'NOT LIKE');
+      $query->leftJoin('field_data_field_folder', 'folder', "entity_type = 'file' AND entity_id = file_managed.fid");
+      $result = $query->execute()->fetchAll(PDO::FETCH_KEY_PAIR);
+      $conditions[] = array(
+        'property' => array('fid', $result, 'IN'),
+      );
+    }
     $order = array(array('property' => array('fid', 'DESC')));
     $media_entities = media_browser_plus_load_multiple(array('conditions' => $conditions, 'order' => $order));
     module_load_include('inc', 'media', 'includes/media.browser');
@@ -148,6 +165,7 @@ function media_browser_plus_thumbnailsJSON() {
       'overall_count' => $media_entities->overall_count,
     );
     drupal_json_output($output);
+    die();
   }
 }
 
@@ -511,7 +529,9 @@ function media_browser_plus_form_file_entity_add_upload_alter(&$form, &$form_sta
  */
 function media_browser_plus_form_file_entity_edit_alter(&$form, &$form_state) {
   // Setting the weight accordingly.
-  $form['field_folder']['#weight'] = $form['field_tags']['#weight'] - 1;
+  if (isset($form['field_tags']['#weight'])) {
+    $form['field_folder']['#weight'] = $form['field_tags']['#weight'] - 1;
+  }
   $form['actions']['cancel'] = array(
     '#type' => 'submit',
     '#value' => t('Cancel'),
@@ -845,7 +865,7 @@ function media_browser_plus_media_access($media_entity) {
  * Revokes the general 'view media' == 'download media' access rule.
  * @todo: this function may be obsolete in 2.x
  */
-function media_browser_plus_file_downloa782d_access_alter(&$grants, $field, $entity_type, $entity = NULL) {
+function media_browser_plus_file_download_access_alter(&$grants, $field, $entity_type, $entity = NULL) {
   if ($entity_type == 'file') {
     unset($grants['file']);
   }
@@ -959,20 +979,29 @@ function _media_browser_plus_folder_hierarchy_list($folders) {
 
 /**
  * Checks for unsorted (i.e. media not in folders) media.
- *
- * @TODO Switch to EntityFieldQuery!!!
  */
 function _media_browser_plus_has_unsorted_media() {
-  // Loading media.
-  $entity_controller = entity_get_controller('file');
-  $media_entities = $entity_controller->load(NULL, array(), 0, 100);
 
-  foreach ($media_entities as $media) {
-    if (!isset($media->field_folder[LANGUAGE_NONE][0]['tid'])) {
-      return TRUE;
-    }
-  }
-  return FALSE;
+  // EFQ doesn't work because the field table is used as base table and an inner
+  // join is used?!
+  // $query = new EntityFieldQuery('file');
+  // $result = $query
+  //   ->entityCondition('entity_type', 'file')
+  //   ->propertyCondition('status', 1)
+  //   ->fieldCondition('field_folder', 'tid', '', 'IS NULL')
+  //   ->range(0, 1)
+  //   ->execute();
+  //
+  // In favor of not unnecessarily loading file entities we use a raw query.
+  // *eeeewwh*!
+  $query = db_select('file_managed')
+    ->fields('file_managed', array('fid'))
+    ->condition('uri', db_like('temporary://') . '%', 'NOT LIKE')
+    ->range(0, 1);
+  $query->leftJoin('field_data_field_folder', 'folder', "entity_type = 'file' AND entity_id = file_managed.fid");
+  $result = $query->execute()->fetchCol();
+
+  return !empty($result);
 }
 
 /**

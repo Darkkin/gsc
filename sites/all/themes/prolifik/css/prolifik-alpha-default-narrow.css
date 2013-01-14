@@ -1,4 +1,5 @@
-/* @override http://gcs.loc/sites/all/themes/prolifik/css/prolifik-alpha-default-narrow.css?mbfgwv */
+/* @override http://gcs.loc/sites/all/themes/prolifik/css/prolifik-alpha-default-narrow.css?mbfgwv
+	http://gcs.lightyourmusic.com/sites/all/themes/prolifik/css/prolifik-alpha-default-narrow.css?mexge2 */
 
 /* This file will hold styles that are loaded using the same media query as the narrow grid. */
 
@@ -47,4 +48,9 @@ div.fpss-slide img {
 	top: 65px;
 	max-width: 330px;
 	height: auto;
+}
+
+#region-menu nav.navigation ul.menu li.leaf {
+  float: left;
+  display: block;
 }
