@@ -1,9 +1,5 @@
 /* @override 
-	http://shs.loc/sites/all/themes/prolifik/css/prolifik-alpha-default-normal.css?m67bl9
-	http://gcs.loc/sites/all/themes/prolifik/css/prolifik-alpha-default-normal.css?mbfgwv
-	http://gcs.lightyourmusic.com/sites/all/themes/prolifik/css/prolifik-alpha-default-normal.css?mbn3h8
-	http://gcs.lightyourmusic.com/sites/all/themes/prolifik/css/prolifik-alpha-default-normal.css?mexge2
-*/
+	http://georgiacenterforsight.com/sites/all/themes/prolifik/css/prolifik-alpha-default-normal.css?mop8gi */
 
 /* This file will hold styles that are loaded using the same media query as the normal grid. */
 
@@ -42,4 +38,11 @@ div.fpss-left div.fpss-body {
 }
 h2.fpss {
 	text-align: left;
+}
+
+div.video {
+	width: 50%;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
 }

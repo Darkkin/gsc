@@ -1,11 +1,3 @@
-/* @override 
-	http://gcs.loc/sites/all/themes/prolifik/css/prolifik-base.css?mbfgwv
-	http://gcs.lightyourmusic.com/sites/all/themes/prolifik/css/prolifik-base.css?mbn3h8
-	http://gcs.lightyourmusic.com/sites/all/themes/prolifik/css/prolifik-base.css?mbp0oy
-	http://gcs.lightyourmusic.com/sites/all/themes/prolifik/css/prolifik-base.css?mbxzhn
-	http://gcs.lightyourmusic.com/sites/all/themes/prolifik/css/prolifik-base.css?mexge2
-*/
-
 /* This file will hold the main styles for your website. */
 body {
 }
@@ -18,14 +10,21 @@ body {
 #block-system-main div.view-id-testimonials.view-display-id-page div.views-row {
 	clear: both;
 }
+/* @end */
+
 
 
 
 /* @end */
 
-
-
-/* @end */
+select.tinynav.tinynav1 {
+	width: 80%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 4px;
+	position: relative;
+	top: 4px;
+}
 
 /* @group Front Block */
 
@@ -262,3 +261,70 @@ ul.quicktabs-tabs li a {
 
 
 /* @end */
+
+#block-nivo-slider-nivo-slider {
+	
+}
+
+.front #region-header-first {
+margin: 0; width: 100%;
+  overflow: hidden;
+-webkit-box-shadow: #666 0px 0px 10px;
+-moz-box-shadow: #666 0px 0px 10px;
+box-shadow: #666 0px 0px 10px;
+}
+
+#node-page-51 img.image-medium {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	clear: both;
+}
+
+#node-page-51 h2 {
+	clear: both;
+}
+
+#views_slideshow_liquidcarousel_content_gallery_to_locations-block_1 {
+	clear: both;
+	margin-bottom: 10px;
+}
+
+#views_slideshow_liquidcarousel_content_gallery_to_locations-block_1 img {
+	-moz-box-shadow: 2px 3px 5px black;
+	-webkit-box-shadow: 2px 3px 5px black;
+	box-shadow: 2px 3px 5px black;
+}
+
+
+#views_slideshow_liquidcarousel_content_gallery_to_locations-block_1 span.next {
+	background: url(../images/right-pan.png) no-repeat;
+	height: 48px;
+	position: relative;
+	top: 60px;
+	width: 28px;
+	font-size: 0;
+}
+
+
+#views_slideshow_liquidcarousel_content_gallery_to_locations-block_1 span.previous {
+	background: url(../images/left-pan.png) no-repeat;
+	height: 48px;
+	position: relative;
+	top: 60px;
+	width: 28px;
+	font-size: 0;
+}
+
+div.wrapper ul li {
+
+}
+.liquid {
+  padding: 10px 0;
+}
+
+.liquid ul li {
+  padding: 0 2px;
+  margin: 0;
+  width: 200px;
+}

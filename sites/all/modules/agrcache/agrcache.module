@@ -479,5 +479,31 @@ function agrcache_add_to_variable($name, $values, $default = array()) {
   if ($result) {
     $original = unserialize($result);
   }
-  variable_set($name, array_merge_recursive($original, $values));
+  else {
+    $original = array('files' => array(), 'callbacks' => array());
+  }
+  $merged_values = array();
+  foreach (array_keys($values) as $key) {
+    $merged_values[$key] = array_merge($values[$key], $original[$key]);
+  }
+  variable_set($name, $merged_values);
 }
+
+/**
+ * Implements hook_flush_caches().
+ */
+function agrcache_flush_caches() {
+  // Core invokes hook_flush_caches() on both cron runs and cache clears.
+  // Clearing the variable every cron run would be very bad, so detect an
+  // explicit cache clear. The simplest way to do this is to run
+  // debug_backtrace() and find drupal_flush_all_caches() in there.
+  // @todo: http://drupal.org/node/1167144
+  // @todo: Require PHP 5.3.6 so this can use DEBUG_BACKTRACE_IGNORE_ARGS.
+  $backtrace = debug_backtrace(FALSE);
+  if (isset($backtrace[3]) && $backtrace[3]['function'] == 'drupal_flush_all_caches') {
+    foreach(array('css', 'js') as $type) {
+      variable_del('agrcache_' . $type . '_cache_files');
+    }
+  }
+}
+
