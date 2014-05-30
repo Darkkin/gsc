@@ -7,9 +7,9 @@ package = Views
 core = 7.x
 files[] = views_slideshow_liquidcarousel.module
 
-; Information added by drupal.org packaging script on 2013-03-01
+; Information added by drupal.org packaging script on 2013-10-19
 version = "7.x-2.x-dev"
 core = "7.x"
 project = "views_slideshow_liquidcarousel"
-datestamp = "1362148285"
+datestamp = "1382165164"
 

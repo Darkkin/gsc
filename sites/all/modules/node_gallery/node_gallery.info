@@ -6,9 +6,9 @@ dependencies[] = image
 dependencies[] = options
 package = "Node Gallery"
 
-; Information added by drupal.org packaging script on 2013-01-31
-version = "7.x-1.0-beta3"
+; Information added by Drupal.org packaging script on 2014-02-12
+version = "7.x-1.0"
 core = "7.x"
 project = "node_gallery"
-datestamp = "1359640294"
+datestamp = "1392225212"
 

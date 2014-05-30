@@ -1,10 +1,16 @@
 /* @override 
-	http://georgiacenterforsight.com/sites/all/themes/prolifik/css/prolifik-alpha-default-normal.css?mop8gi */
+	http://lasik.prolifikseo.com/sites/all/themes/prolifik/css/prolifik-alpha-default-normal.css?mrztrf
+	http://lasik.prolifikseo.com/sites/all/themes/prolifik/css/prolifik-alpha-default-normal.css?ms0523
+	http://lasik.prolifikseo.com/sites/all/themes/prolifik/css/prolifik-alpha-default-normal.css?ms06gx
+	http://lasik.prolifikseo.com/sites/all/themes/prolifik/css/prolifik-alpha-default-normal.css?ms1k11 */
 
 /* This file will hold styles that are loaded using the same media query as the normal grid. */
 
-#logo {
-  width: 250px;
+.logo-img {zoom: .4;}
+#block-bean-tagline p {
+	font-size: 2.75em;
+	line-height: 1em;
+	margin-top: 10px;
 }
 
 /* Search Form */
@@ -16,33 +22,8 @@
   width: 300px;
   z-index: 1;
 }
+#section-content {padding-bottom: 150px;}
 
-
-#block-views-fpss-block div.view-footer p a img { margin-left: 25px; max-width: 300px;	height: auto;
-}
-
-div.fpss-left {
-width: 32%; float: left; overflow: hidden;
-}
-div.fpss-slide img {
-	border: thick solid white;
-	position: relative;
-	top: 65px;
-	max-width: 450px;
-	height: auto;
-}
-
-
-div.fpss-left div.fpss-body {
-
-}
-h2.fpss {
-	text-align: left;
-}
-
-div.video {
-	width: 50%;
-	float: left;
-	margin-right: 10px;
-	margin-bottom: 10px;
+#block-block-2 div.content p, #block-views-latest-articles-block div.view-content {
+	height: 174px;
 }

@@ -56,7 +56,9 @@ function theme_node_gallery_api_manage_items_form($variables) {
     $row[] = drupal_render($element['remove']);
     $file = $element['item_file']['#value'];
     if (!empty($file)) {
-      $row[] = drupal_render(file_view((object) $file, 'node_gallery_api_admin_thumbnail'));
+      $file_object = (object) $file;
+      $file_view = file_view($file_object, 'node_gallery_api_admin_thumbnail');
+      $row[] = drupal_render($file_view);
     }
     else {
       $row[] = '';
@@ -69,7 +71,7 @@ function theme_node_gallery_api_manage_items_form($variables) {
     if ($enable_rotation && !empty($file) && $file['type'] == 'image') {
       $row[] = drupal_render($element['rotate']);
     }
-    else {
+    elseif ($enable_rotation) {
       drupal_render($element['rotate']);
       $row[] = '';
     }
@@ -226,10 +228,12 @@ function theme_node_gallery_api_sort_items_form($variables) {
   $i = 0;
   foreach ($form['#images'] as $image) {
     $published = ($image['status']) ? t('Yes') : t('No');
+    $file_object = (object) $image['file_object'];
+    $file_view = file_view($file_object, 'node_gallery_api_admin_thumbnail');
     $row = array(
       // The placeholder for the tabledrag icon.
       '',
-      drupal_render(file_view((object) $image['file_object'], 'node_gallery_api_admin_thumbnail')),
+      drupal_render($file_view),
       $image['title'],
       format_date($image['created'], 'short'),
       format_date($image['changed'], 'short'),

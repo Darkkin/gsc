@@ -30,11 +30,11 @@ function prolifik_process_maintenance_page(&$variables) {
 }
 
 function prolifik_openenterprise_logo() {
-  return '<img src="' . base_path() . drupal_get_path('theme', 'prolifik') . '/images/openenterprise-logo-small.png" alt="" class="openenterprise" height="16" width="122" />';
+  return '<img src="' . base_path() . drupal_get_path('theme', 'prolifik') . '/images/lasik.svg" alt="" class="openenterprise" />';
 }
 
 function prolifik_levelten_logo() {
-  return '<img src="' . base_path() . drupal_get_path('theme', 'prolifik') . '/images/levelten-logo-small.png" alt="" class="levelten" height="16" width="52" />';
+  return '<img src="' . base_path() . drupal_get_path('theme', 'prolifik') . '/images/lasik.svg" alt="Lasik Athens, GA" />';
 }
 
 function prolifik_html_head_alter(&$head_elements) {

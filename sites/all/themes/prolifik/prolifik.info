@@ -7,70 +7,12 @@ base theme = 'omega'
 
 ; Scripts
 scripts[] = 'js/global.js'
-scripts[] = 'js/SpryAccordion.js'
-scripts[] = 'js/SpryCollapsiblePanel.js'
-scripts[] = 'js/ScrollTO.js'
-scripts[] = 'js/LocalScroll.js'
-scripts[] = 'js/documentReady.js'
 
 ; Styles
 css[prolifik-base.css][name] = 'Prolifik: Base'
 css[prolifik-base.css][description] = 'This file contains the base page styling.'
 css[prolifik-base.css][options][weight] = '10'
 settings[alpha_css][prolifik-base.css] = 'prolifik-base.css'
-
-css[prolifik-font.css][name] = 'prolifik: Font'
-css[prolifik-font.css][description] = 'This file contains the font stylings for the site.'
-css[prolifik-font.css][options][weight] = '11'
-settings[alpha_css][prolifik-font.css] = 'prolifik-font.css'
-
-css[prolifik-form.css][name] = 'prolifik: Form'
-css[prolifik-form.css][description] = 'This file contains the form stylings for the site.'
-css[prolifik-form.css][options][weight] = '12'
-settings[alpha_css][prolifik-form.css] = 'prolifik-form.css'
-
-css[prolifik-branding.css][name] = 'prolifik: Branding'
-css[prolifik-branding.css][description] = 'This file contains the branding stylings for the site.'
-css[prolifik-branding.css][options][weight] = '20'
-settings[alpha_css][prolifik-branding.css] = 'prolifik-branding.css'
-
-css[prolifik-menu.css][name] = 'prolifik: Menu'
-css[prolifik-menu.css][description] = 'This file contains the menu stylings for the site.'
-css[prolifik-menu.css][options][weight] = '21'
-settings[alpha_css][prolifik-menu.css] = 'prolifik-menu.css'
-
-css[prolifik-header.css][name] = 'prolifik: Header'
-css[prolifik-header.css][description] = 'This file contains the header stylings for the site.'
-css[prolifik-header.css][options][weight] = '22'
-settings[alpha_css][prolifik-header.css] = 'prolifik-header.css'
-
-css[prolifik-preface.css][name] = 'prolifik: Preface'
-css[prolifik-preface.css][description] = 'This file contains the preface stylings for the site.'
-css[prolifik-preface.css][options][weight] = '23'
-settings[alpha_css][prolifik-preface.css] = 'prolifik-preface.css'
-
-css[prolifik-content.css][name] = 'prolifik: Content'
-css[prolifik-content.css][description] = 'This file contains the content stylings for the site.'
-css[prolifik-content.css][options][weight] = '24'
-settings[alpha_css][prolifik-content.css] = 'prolifik-content.css'
-
-css[prolifik-postfix.css][name] = 'prolifik: Postfix'
-css[prolifik-postfix.css][description] = 'This file contains the postfix stylings for the site.'
-css[prolifik-postfix.css][options][weight] = '25'
-settings[alpha_css][prolifik-postfix.css] = 'prolifik-postfix.css'
-
-css[prolifik-footer.css][name] = 'prolifik: Footer'
-css[prolifik-footer.css][description] = 'This file contains the footer stylings for the site.'
-css[prolifik-footer.css][options][weight] = '26'
-settings[alpha_css][prolifik-footer.css] = 'prolifik-footer.css'
-
-css[SpryAccordion.css][name] = 'SpryAccordion'
-css[prolifik-footer.css][description] = 'This file contains the accordion stylings for the site.'
-css[prolifik-footer.css][options][weight] = '27'
-
-css[SpryCollapsiblePanel.css][name] = 'SpryPanels'
-css[prolifik-footer.css][description] = 'This file contains the spry panel stylings for the site.'
-css[prolifik-footer.css][options][weight] = '28'
 
 ; Zones
 zones[branding] = 'Branding'
@@ -419,7 +361,7 @@ settings[alpha_region_footer_bottom_weight] = '4'
 settings[alpha_region_footer_bottom_css] = ''
 
 
-version = "7.x-1.0"
+version = "7.x-2.0"
 core = "7.x"
 project = "prolifik"
 datestamp = "1336089362"

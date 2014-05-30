@@ -2,10 +2,11 @@
 
 /**
  * @file
- *  Canned view to display an alternative visitor log of your site, which
- *  contains for each IP address, the number of visits (clicks), the dates of
- *  first and last visit and a map of the centered around the visitor's
- *  location.
+ * Canned view to display an alternative visitor log of your site.
+ *
+ * Which contains for each IP address, the number of visits (clicks), the dates
+ * of first and last visit and a map of the centered around the visitor's
+ * location.
  */
 
 /**
@@ -110,7 +111,6 @@ function ip_geoloc_views_default_views() {
   );
   $views[$view->name] = $view;
 
-
   /*
    * View 'Map (Google) centered on visitor's location'
    */
@@ -136,37 +136,35 @@ function ip_geoloc_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'ip_geoloc_map';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => '',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
   $handler->display->display_options['style_options']['ip_geoloc_views_plugin_latitude'] = '';
   $handler->display->display_options['style_options']['ip_geoloc_views_plugin_longitude'] = '';
   $handler->display->display_options['style_options']['center_option'] = '2';
   $handler->display->display_options['style_options']['visitor_marker'] = '00FF00';
   $handler->display->display_options['style_options']['gps_roles'] = array(
     1 => '1',
-    2 => '2'
+    2 => '2',
+    3 => 0,
   );
   $handler->display->display_options['style_options']['map_options'] = '{"mapTypeId":"roadmap", "disableDefaultUI":true, "zoom":15, "zoomControl":true, "scaleControl":true}';
+  $handler->display->display_options['style_options']['empty_map_center'] = 'visitor';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Filter criterion: Content: Title */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $translatables['map_leaflet_centered_on_visitor_location'] = array(
-    t('Master'),
-    t('Your location'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Block'),
-  );
-  $views[$view->name] = $view;
 
   /*
    * View 'Map (Leaflet) centered on visitor's location'
@@ -192,34 +190,34 @@ function ip_geoloc_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'ip_geoloc_leaflet';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => '',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
   $handler->display->display_options['style_options']['ip_geoloc_views_plugin_latitude'] = '';
   $handler->display->display_options['style_options']['ip_geoloc_views_plugin_longitude'] = '';
   $handler->display->display_options['style_options']['center_option'] = '2';
-  $handler->display->display_options['style_options']['zoom'] = '15';
+  $handler->display->display_options['style_options']['empty_map_center'] = 'visitor';
   $handler->display->display_options['style_options']['visitor_marker_color'] = '';
-  $handler->display->display_options['style_options']['map'] = 'OSM Mapnik';
   $handler->display->display_options['style_options']['map_height'] = '300';
+  $handler->display->display_options['style_options']['map_options']['maxzoom'] = '18';
+  $handler->display->display_options['style_options']['map_options']['zoom'] = '15';
+  $handler->display->display_options['style_options']['map_options']['scrollwheelzoom'] = '1';
+  $handler->display->display_options['style_options']['map_options']['dragging'] = '1';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Filter criterion: Content: Title */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $translatables['map_centered_on_visitor_location'] = array(
-    t('Master'),
-    t('Your location'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Block'),
-  );
   $views[$view->name] = $view;
 
   /*
@@ -276,7 +274,7 @@ function ip_geoloc_views_default_views() {
   /*
    * View 'Visitor log'
    */
-  $view = new view;
+  $view = new view();
   $view->name = 'visitor_log';
   $view->description = 'Shows IP and street addresses of recent visitors with visit counts and maps.';
   $view->tag = 'IP Geolocation Views and Maps';
@@ -665,7 +663,7 @@ function ip_geoloc_views_default_views() {
   /*
    * Visitor-log (lite)
    */
-  $view = new view;
+  $view = new view();
   $view->name = 'visitor_log_lite';
   $view->description = 'Shows IP and street addresses of recent visitors.';
   $view->tag = 'IP Geolocation Views and Maps';
@@ -836,9 +834,8 @@ function ip_geoloc_views_default_views() {
 
   $views[$view->name] = $view;
 
-
   /* View Order Locations formatted as a map with marker balloons. */
-  $view = new view;
+  $view = new view();
   $view->name = 'order_locations';
   $view->description = '';
   $view->tag = 'IP Geolocation Views and Maps';

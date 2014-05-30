@@ -6,16 +6,6 @@
 ?>
 <div<?php print $attributes; ?>>
   <div<?php print $content_attributes; ?>>
-    <?php if ($main_links): ?>
-    <nav class="navigation">
-      <?php print render($main_links); ?>
-    </nav>
-    <?php endif; ?>
-    <?php if ($secondary_links): ?>
-    <nav class="navigation-secondary">
-      <?php print render($secondary_links); ?>
-    </nav>
-    <?php endif; ?>
     <?php print $content; ?>
   </div>
 </div>

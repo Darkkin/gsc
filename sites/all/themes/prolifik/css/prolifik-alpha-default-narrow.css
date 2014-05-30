@@ -1,13 +1,11 @@
-/* @override http://gcs.loc/sites/all/themes/prolifik/css/prolifik-alpha-default-narrow.css?mbfgwv
-	http://gcs.lightyourmusic.com/sites/all/themes/prolifik/css/prolifik-alpha-default-narrow.css?mexge2 */
-
 /* This file will hold styles that are loaded using the same media query as the narrow grid. */
 
-.logo-img {
-  float: left;
-  text-align: left;
-}
+.logo-img {zoom: .35;}
 
+#block-bean-tagline p {
+	font-size: 1.75em;
+	line-height: 1.25em;
+}
 /* User */
 #region-user-first,
 #region-user-second {
@@ -28,29 +26,27 @@
   width: 300px;
   z-index: 1;
 }
-#block-views-fpss-block div.view-footer  {display: block;
-	border-top: medium solid white;
-	padding-top: 20px;
-	overflow: visible;
-	width: 120%;
-	clear: both;
+#region-menu nav.navigation ul.menu li.leaf {display: block; float: left;
 }
 
-#block-views-fpss-block div.view-footer p a img { margin-left: 10px; max-width: 150px; height: auto;}
-
-div.fpss-left {
-width: 48%; float: left;margin-right: 1%;
-}
-div.fpss-slide img {
-	float: right;
-	border: thick solid white;
-	position: relative;
-	top: 65px;
-	max-width: 330px;
-	height: auto;
+#section-content {
+	padding-bottom: 130px;
 }
 
-#region-menu nav.navigation ul.menu li.leaf {
-  float: left;
-  display: block;
+.view-taxonomy-term .views-row-odd {width: 45%; float: left; margin-right: 5%; clear: both;}
+
+.context-doctors img {
+	display: inline;
+	float: left;
+	padding-right: 10px;
+	padding-bottom: 10px;
 }
+#block-block-2 div.content p, #block-views-latest-articles-block div.view-content {
+	height: 274px;
+	margin-bottom: 0;
+}
+
+/* @group Lasik Seminar */
+.view-lasik-seminar .views-row {width: 45%; display: inline-block}
+.view-lasik-seminar .views-row .views-row-odd {float: left; margin-right: 10%}
+/* @end */

@@ -156,7 +156,7 @@ function node_gallery_api_menu() {
   );
 
 
-  $primary_item_type = NULL;
+  $item_types = array();
   $relationship_types = node_gallery_api_get_relationship_type(NULL, NULL, NULL, TRUE);
   if (!empty($relationship_types)) {
     foreach ($relationship_types as $relationship) {
@@ -170,9 +170,9 @@ function node_gallery_api_menu() {
           'access arguments' => array(1, $item_type),
           'file' => 'node_gallery_api.pages.inc',
           'weight' => -2,
-          'type' => (empty($primary_item_type)) ? MENU_DEFAULT_LOCAL_TASK : MENU_LOCAL_TASK,
+          'type' => (empty($item_types)) ? MENU_DEFAULT_LOCAL_TASK : MENU_LOCAL_TASK,
         );
-        $primary_item_type = $item_type;
+        $item_types[] = $item_type;
       }
     }
   }
@@ -180,9 +180,9 @@ function node_gallery_api_menu() {
   $items['node/%node_gallery_api_gallery/upload'] = array(
     'title' => 'Upload New Items',
     'page callback' => 'node_gallery_api_upload_items_form',
-    'page arguments' => array(1, $primary_item_type),
+    'page arguments' => array(1),
     'access callback' => 'node_gallery_api_upload_access',
-    'access arguments' => array(1, $primary_item_type),
+    'access arguments' => array(1),
     'file' => 'node_gallery_api.pages.inc',
     'weight' => -2,
     'type' => MENU_LOCAL_TASK,
@@ -192,9 +192,25 @@ function node_gallery_api_menu() {
 }
 
 /**
+ * Implements hook_permission()
+ */
+function node_gallery_api_permission() {
+  return array(
+    NODE_GALLERY_PERM_ADMIN_GALLERY => array(
+      'title' => t('Administer Node Gallery Settings'),
+      'description' => t('Create Node Gallery relationship types and administer settings.'),
+    ),
+    NODE_GALLERY_PERM_UPLOAD_TO_ALL_GALLERIES => array(
+      'title' => t('Upload to All Galleries'),
+      'description' => t('Upload to any gallery, regardless if they were the creator'),
+    ),
+  );
+}
+
+/**
  * Access function for uploads.
  */
-function node_gallery_api_upload_access($gallery, $item_type) {
+function node_gallery_api_upload_access($gallery, $item_type = NULL) {
   $relationship_types = node_gallery_api_get_relationship_type($gallery->type, $item_type);
   return (!empty($relationship_types) && node_gallery_api_user_access('upload', $gallery));
 }
@@ -473,7 +489,7 @@ function node_gallery_api_token_info() {
    */
 function node_gallery_api_tokens($type, $tokens, array $data = array(), array $options = array()) {
   $replacements = array();
-  if ($type == 'node') {
+  if ($type == 'node' && !empty($data['node'])) {
     $node = $data['node'];
     $relationships = node_gallery_api_get_relationships(NULL, $node->nid);
     if (!empty($relationships)) {
@@ -980,8 +996,8 @@ function node_gallery_api_entity_info() {
       $items['node_gallery_relationship']['bundles'][$type_name] = array(
         'label' => $type->label,
         'admin' => array(
-          'path' => 'admin/config/node-gallery/relationship/settings/%node_gallery_relationship_type',
-          'real path' => 'admin/config/node-gallery/relationship/settings/' . $type->id,
+          'path' => 'admin/config/content/node-gallery/relationship-type/settings/%node_gallery_api_relationship_type',
+          'real path' => 'admin/config/content/node-gallery/relationship-type/settings/' . $type->id,
           'bundle argument' => 5,
           'access arguments' => array('administer node gallery'),
         ),
@@ -1170,14 +1186,14 @@ function node_gallery_api_help($path, $arg) {
   $output = '';
   switch ($path) {
     case 'node/%/images':
-      if (node_gallery_user_access('administer')) {
-        return '<p>' . t('To configure what is displayed on this form, review the "Manage Images Fields" fieldset under <a href="!admin">Node Gallery administration</a>.', array('!admin' => url('admin/config/node_gallery'))) . '</p>';
+      if (node_gallery_api_user_access('administer')) {
+        return '<p>' . t('To configure what is displayed on this form, review the "Manage Items Fields" fieldset under <a href="!admin">Node Gallery administration</a>.', array('!admin' => url('admin/config/content/node_gallery'))) . '</p>';
       }
       break;
 
     case 'node/%/upload':
       if (module_exists('plupload')) {
-        return '<p>' . t('To edit image data after uploading please visit the <a href="!manage">Manage Images</a> tab.', array('!manage' => url('node/' . $arg[1] . '/images'))) . '</p>';
+        return '<p>' . t('To edit image data after uploading please visit the <a href="!manage">Manage Items</a> tab.', array('!manage' => url('node/' . $arg[1] . '/items'))) . '</p>';
       }
       elseif (node_gallery_api_user_access('administer')) {
         return '<p>' . t('To enable seamless bulk image uploading please install the <a href="!plupload">plupload integration</a> module.', array('!plupload' => url('http://drupal.org/project/plupload'))) . '</p>';
